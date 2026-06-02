@@ -50,8 +50,8 @@ export default function WorkPage() {
         {[
           { domain: "Developer Tooling", product: "ShipClawFast", thesis: "Removes the memory of environment setup" },
           { domain: "Restaurant Operations", product: "MenuOS", thesis: "Removes the memory of order coordination" },
-          { domain: "Finance & Tax", product: "TEM", thesis: "Removes the memory of financial tracking" },
-          { domain: "Household Wealth", product: "Household OS", thesis: "Removes the memory of shared finances" },
+          { domain: "Expense Memory", product: "TEM", thesis: "Removes the memory of expense recording" },
+          { domain: "Shared Finance", product: "Household OS", thesis: "Exploration into shared coordination rules" },
           { domain: "AI Infrastructure", product: "Agent Systems", thesis: "Removes the memory of execution state" },
           { domain: "Data Architecture", product: "Dependency Mapping", thesis: "Removes the memory of system relationships" },
         ].map((item) => (

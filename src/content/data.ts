@@ -141,65 +141,66 @@ Result: [Starter] strictly precedes [Dessert] in the dispatch rendering.`,
   {
     slug: "tem",
     title: "TEM",
-    tagline: "Financial Memory System for Freelancers and Operators",
-    problem: "Freelancers and small operators track income, taxes, and capital allocation in spreadsheets — knowledge that lives in one person's head and breaks the moment context switches.",
-    whyFailed: "Standard accounting tools are designed for accountants, not operators. They surface historical data without surfacing what to do next. The cognitive load of interpretation remains entirely on the human.",
-    insight: "Financial tracking is a memory problem, not a math problem. By automating recall boundaries and surfacing the right number at the right moment, the software carries the mental overhead that operators currently carry themselves.",
-    philosophy: "The system should know what you owe, what you earned, and what you'll owe next quarter — without being asked.",
-    architecture: "A local-first data layer that ingests income events, applies configurable tax rules, and surfaces actionable projections. State persists locally, syncs on demand.",
+    tagline: "Voice-First Expense Memory System",
+    problem: "Small expenses disappear from memory faster than they disappear from bank accounts. Freelancers and operators often remember major purchases but lose track of dozens of smaller transactions throughout the month. By the time accounting or tax season arrives, reconstructing spending history becomes a manual investigation.",
+    whyFailed: "Traditional expense trackers require users to become accountants. Categories, forms, budgets, and manual entry create friction at the exact moment an expense occurs. Most expenses are forgotten not because reports are missing, but because recording them requires too much effort.",
+    insight: "Expense tracking is not an accounting problem. It is a memory problem. People do not forget expenses because they lack reports. They forget because recording requires effort at the moment the expense occurs.",
+    philosophy: "TEM reduces that effort by turning expense capture into a conversation.",
+    architecture: "A local-first pipeline built around: 1) Unstructured Voice Capture via whisper-based transcription, 2) Dynamic Metadata Parsing to extract amounts, merchants, and dates, 3) Local Ledger Drafts to review inputs before committing them to SQLite memory, and 4) An Active Recall CLI to retrieve past entries instantly.",
     techStack: ["Next.js", "TypeScript", "SQLite", "Prisma", "Tailwind CSS"],
-    impact: "Eliminates the need to open a spreadsheet to answer basic financial questions at the end of a work week.",
-    challenges: "Tax rules are jurisdiction-specific and change annually. Instead of trying to automate everything, the system provides configurable boundaries that operators tune once and the system applies consistently.",
-    lessons: "Simplicity over completeness. A system that answers three financial questions reliably beats one that tries to answer thirty and requires manual auditing.",
-    future: "Add automated invoice reconciliation and cash flow projection windows.",
-    timeline: "Build Duration: 6 weeks | Status: Active",
-    operationalNote: "Early versions tried to categorise transactions automatically. Categorisation errors required more correction time than manual entry. Switched to structured manual input with smart defaults.",
-    compromise: "No automatic bank sync. Removed it to avoid OAuth complexity and keep the system locally trustworthy without third-party dependencies.",
-    deprecatedApproach: "Automatic transaction categorisation via pattern matching. Abandoned when miscategorisation required more effort to fix than the time saved.",
-    buildArtifact: `[TEM FINANCIAL STATE SNAPSHOT]
-$ tem status
-  income_ytd:        ₹4,82,000
-  tax_estimate_q3:   ₹68,400  (28% effective)
-  available_capital: ₹3,28,000
-  next_review:       2026-07-01
-  status: [NO_ACTION_REQUIRED]`,
+    impact: "Captures business and personal expenses using natural voice notes, translating unstructured speech into structured financial memory.",
+    challenges: "Friction reduction is prioritized over reporting completeness. The design opts to capture incomplete records immediately rather than force complex inputs that cause the user to abandon recording entirely.",
+    lessons: "The hardest problem was not recording expenses. The hardest problem was making recording easier than forgetting.",
+    future: "Subscription memory | Recurring obligations | Income tracking | Receipt memory | Financial recall support",
+    timeline: "Build Duration: 6 weeks | Status: Active | Long-term objective: trusted financial memory infrastructure.",
+    operationalNote: "Correction preferred over aggressive prediction.",
+    compromise: "No automatic background commits. The system queues all transactions as drafts, trading immediate execution for verification safety.",
+    deprecatedApproach: "Automatic bank feed synchronization via API. Abandoned because fragile connection states and token expirations created more maintenance overhead than manual recording.",
+    buildArtifact: `[TEM EXPENSE MEMORY SNAPSHOT]
+$ tem list --drafts
+  - Draft #12: "Uber ride to client office" -> ₹450 [Transport] (Pending Approval)
+  - Draft #13: "Notebooks and pens" -> ₹180 [Office] (Pending Approval)
+$ tem commit 12
+  committed: Draft #12 to Local Store [OK]`,
     demo: "https://tem-nu.vercel.app/",
-    whyExists: "Financial memory is the first thing that decays under high operational load. Freelancers and operators are forced to act as synchronization engines between invoice records, tax rules, bank accounts, and quarterly forecasts. The TEM blueprint is designed to offload this cognitive burden entirely.",
+    whyExists: "Financial memory is the first thing that decays under high operational load. TEM is designed to solve the recording gap by matching natural human input with structured, low-friction persistence.",
     painPoints: [
-      "Traditional accounting software forces manual transaction entry, creating a high-friction batch process done at the end of the year under stress.",
-      "Voice note transcription models lose context and metadata, failing to parse intent and leading to miscategorization.",
-      "Tax rule adjustments are treated as historical queries instead of proactive, real-time capital allocation boundaries."
+      "Expense details lost hours after purchase",
+      "Voice transcription errors creating incorrect amounts",
+      "Category misclassification creating correction work",
+      "Manual entry abandoned after context switching"
     ],
     designDecisions: [
-      "A background Voice Capture Pipeline that captures audio memos, transcribes them, and queues them as uncommitted transactions",
-      "An asynchronous Classification Engine that parses transaction intent locally using light LLM parsing and schema-first guardrails",
-      "A local-first SQLite ledger containing tax tables, allowing instant status updates without external network dependencies",
-      "Trust over Automation: The system generates transaction proposals but leaves them as uncommitted drafts requiring a single-tap approval"
+      "Require confirmation before saving",
+      "Prefer correction over automation",
+      "Store locally first",
+      "Keep interaction under a few seconds",
+      "Trust over Automation: The system generates transaction proposals but leaves them as 'uncommitted drafts' requiring a single-tap approval. We assume AI classification will fail 5% of the time. The cost of a bad record is higher than the cost of manual review."
     ],
     whatBrokeDetailed: [
-      "Runaway LLM classification loops in prototype versions auto-committed transaction records with erroneous categories, polluting the ledger",
-      "Sync delays during offline usage led to out-of-order transaction replay, causing local balance projections to drift from bank truth",
-      "OAuth bank feed sync complexity broke frequently when banks updated APIs. Ripped out API feeds for resilient manual verification workflows"
+      "LLM Classification Loops: Early versions of the LLM pipeline got stuck in classification loops when parsing complex multi-item receipts, inflating the API budget.",
+      "OAuth Bank Sync Fragility: We initially attempted automatic bank feed synchronization. Ripped it out. Bank APIs are fragile, require constant token refreshes, and create security concerns for a lightweight memory tool. Manual-first with voice verification is far more resilient.",
+      "Sync Latency: Multi-device sync had race conditions that duplicated drafts. Solved by moving to local-only SQLite databases with manual ledger exports."
     ]
   },
   {
     slug: "household-os",
     title: "Household OS",
-    tagline: "Shared Wealth Coordination System for Families",
-    problem: "Families manage shared finances through WhatsApp messages, scattered spreadsheets, and conversations that happen once and are never recorded — leaving no single source of truth for joint assets, expenses, and decisions.",
-    whyFailed: "Consumer budgeting apps are designed for individuals. They assume a single owner and a single account. Shared household finance involves multiple stakeholders, joint decisions, and implicit rules that change over time.",
-    insight: "A household is a small distributed system with multiple contributors and shared state. The system should hold the ground truth so no individual family member has to.",
-    philosophy: "Shared finances should not require a designated memory-keeper. The software absorbs that role.",
-    architecture: "A multi-user local-first application with shared state sync. Each family member sees a consistent view of assets, liabilities, and decisions. Changes propagate and are versioned.",
+    tagline: "Prototype for Household Financial Coordination",
+    problem: "Families coordinate finances through conversations, WhatsApp messages, scattered spreadsheets, and memory — leaving no single source of truth for joint assets, expenses, and decisions.",
+    whyFailed: "Traditional budgeting tools are designed around a single individual with single accounts. A household is a cooperative unit with multiple independent actors, shared commitments, and complex social rules that cannot be captured by automated ledger sync.",
+    insight: "A household behaves like a small distributed system. Financial decisions are made by multiple people, at different times, with incomplete information. HouseholdOS explores whether shared finances can be modeled as a coordination problem rather than a budgeting problem.",
+    philosophy: "The hardest part of shared finance is social alignment, not technical implementation. A system that feels unfair will not be trusted regardless of its technical design.",
+    architecture: "A local-first prototype demonstrating: 1) Multi-ledger local views using SQLite models representing individual family balances, 2) Shared commitments declaration defining fixed commitments in a shared schema, and 3) A manual reconciliation console. Avoids background cloud sync to focus purely on local user interaction correctness.",
     techStack: ["Next.js", "TypeScript", "SQLite", "Prisma", "Tailwind CSS"],
     impact: "Removes the need for weekly 'money conversations' by keeping shared financial state continuously visible and current.",
     challenges: "Defining access boundaries without making the system feel intrusive. Chose a transparent model where all members see all shared state — no hidden categories.",
-    lessons: "The hardest part of shared financial software is social, not technical. The system has to feel fair and neutral to all parties or it won't be used.",
-    future: "Add long-horizon goal tracking and milestone milestones for major shared purchases.",
+    lessons: "The hardest part of shared finance is social alignment, not technical implementation. A system that feels unfair will not be trusted regardless of its technical design.",
+    future: "Add exportable CSV ledger logs for external tax auditing, and a read-only spectator view for non-coordinating family members.",
     timeline: "Build Duration: 5 weeks | Status: Active",
-    operationalNote: "Early versions had too many categories. Simplified to four: income, fixed expenses, discretionary, and savings. Anything more created categorisation debates, not clarity.",
-    compromise: "No automatic reconciliation with bank statements. Kept it manual to preserve the system's role as a deliberate coordination tool, not a passive feed.",
-    deprecatedApproach: "Per-user budget silos with a shared summary view. Abandoned because it recreated the same fragmentation problem the system was meant to solve.",
+    operationalNote: "Manual reconciliation console requires users to review and check off items together, turning what is normally an automated query into a shared coordination event.",
+    compromise: "Ripped out all cloud database syncing and automated bank scraping. The prototype runs locally on a single machine or uses manual SQLite file sharing to guarantee absolute privacy and state consistency.",
+    deprecatedApproach: "Real-time multi-device database synchronization and automated bank statement scraping. Abandoned because the synchronization friction and security risks outweighed the benefits of deliberate manual updates.",
     buildArtifact: `[HOUSEHOLD OS STATE VIEW]
 $ household status
   shared_income_july:    ₹1,20,000
@@ -208,7 +209,23 @@ $ household status
   savings_target_delta:  ₹+6,200 ahead
   last_updated:          2026-06-02 by Shashank
   status: [ON_TRACK]`,
-    demo: "https://private-wealth-app.vercel.app/"
+    demo: "https://private-wealth-app.vercel.app/",
+    whyExists: "This prototype was built to investigate whether cooperative household wealth can be coordinated without central surveillance or automated bank scraping, treating family finance as a consensus problem between trust-linked nodes.",
+    painPoints: [
+      "No single source of truth for joint assets, leading to out-of-sync tracking",
+      "Fragility of automated bank feed APIs causing reconciliation errors",
+      "Social friction of budgeting systems that feel unequal or asymmetric"
+    ],
+    designDecisions: [
+      "Implement multi-ledger local views where each family member's balance is isolated in an SQLite model",
+      "Declare shared commitments (rent, utilities) in a static shared schema to prevent categorization debates",
+      "Build a manual transaction reconciliation console instead of real-time background sync to ensure deliberate inputs"
+    ],
+    whatBrokeDetailed: [
+      "Real-time multi-device sync was removed after early WebSocket prototypes caused data collisions and split-brain state drift.",
+      "Automated bank categorization was scrapped because misclassified transactions caused more debate and correction than manual tagging.",
+      "Per-user budget silos failed to resolve the shared coordination problem, forcing a refactoring to a unified shared ledger model."
+    ]
   },
   {
     slug: "dependency-mapping",
@@ -523,7 +540,7 @@ export const systemNodes: SystemNode[] = [
     x: 500,
     y: 280,
     connections: ["cognition", "product-systems", "ux", "infrastructure"],
-    linkedConcepts: ["Developer Memory -> ShipClawFast", "Operational Memory -> MenuOS", "Financial Memory -> TEM", "Wealth Coordination Memory -> Household OS"],
+    linkedConcepts: ["Developer Memory -> ShipClawFast", "Operational Memory -> MenuOS", "Expense Memory -> TEM", "Wealth Coordination Memory -> Household OS"],
     experiments: ["Absorbing operational context variables", "Pruning human recall metrics"],
     decisions: ["Shifting architecture focus to carrying cognitive load instead of creating it"]
   }

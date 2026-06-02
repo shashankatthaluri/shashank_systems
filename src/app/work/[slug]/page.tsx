@@ -90,32 +90,56 @@ export default async function ProjectDetailPage({ params }: PageProps) {
         break;
 
       case "tem":
-        diagramTitle = "VOICE CAPTURE PIPELINE & CLASSIFICATION ENGINE // ASYNCHRONOUS LEDGER";
+        diagramTitle = "VOICE EXPENSE FLOW // TRANSACTIONS PROCESSING VECTOR";
         asciiArt = `
-[TEM VOICE MEMO CAPTURE & LOCAL RECONCILIATION PIPELINE]
+[TEM VOICE-FIRST EXPENSE CAPTURE PIPELINE]
 
-    Operator Voice Memo           Local Queue / SQLite Drafts          Classification Engine
-  ┌───────────────────────┐       ┌─────────────────────────────┐      ┌─────────────────────────────┐
-  │ Audio Capture (.wav)  │ ────> │ local-draft-queue           │ ───> │ LLM Structured Output       │
-  │ "Received ₹50k from   │       │                             │      │ (Schema Validation)         │
-  │ Acme Corp for design" │       │ - status: UNCOMMITTED       │      │                             │
-  └───────────────────────┘       │ - payload: raw_audio_bin    │      │ - Ingests transcribed text  │
-                                  └──────────────┬──────────────┘      │ - Extracts amount: ₹50,000  │
-                                                 │ (Whisper API)       │ - Extracts sender: Acme     │
-                                                 ▼                     │ - Maps category: Design     │
-                                  ┌─────────────────────────────┐      └──────────────┬──────────────┘
-                                  │ Whisper Transcription Path  │                     │
-                                  │ "Received 50000 rupees from │                     │ (Structured JSON)
-                                  │ Acme Corporation..."        │ <───────────────────┘
-                                  └──────────────┬──────────────┘
-                                                 │
-                                                 ▼
-                                  ┌─────────────────────────────┐      ┌─────────────────────────────┐
-                                  │ Local-First SQLite Database │ <─── │ Operator Verification HUD   │
-                                  │                             │      │                             │
-                                  │ - status: COMMITTED         │ <─── │ [Approve] / [Reject] Tap    │
-                                  │ - tax_allocation: 28%       │      │ (Trust Over Automation)     │
-                                  └─────────────────────────────┘      └─────────────────────────────┘`;
+   User Voice Input
+         │
+         ▼
+   Speech-to-Text (Local/Remote Transcription)
+         │
+         ▼
+   Amount Extraction (Entity Parsing)
+         │
+         ▼
+   Category Suggestion (Tax/Expense Tagging)
+         │
+         ▼
+   User Confirmation (Manual Approval Overlay)
+         │
+         ▼
+   Local Expense Store (SQLite Ledger)
+         │
+         ▼
+   Expense History (Active Recall HUD)`;
+        break;
+
+      case "household-os":
+        diagramTitle = "COOPERATIVE FINANCIAL COORDINATION // LOCAL RECONCILIATION LOOP";
+        asciiArt = `
+[HOUSEHOLD OS ARCHITECTURE EXPLORATION]
+
+       User A (Partner A View)           User B (Partner B View)
+     ┌────────────────────────┐        ┌────────────────────────┐
+     │ - SQLite Balance Model │        │ - SQLite Balance Model │
+     │ - Manual Input Console │        │ - Manual Input Console │
+     └───────────┬────────────┘        └───────────┬────────────┘
+                 │                                 │
+                 ▼                                 ▼
+     ┌──────────────────────────────────────────────────────────┐
+     │             LOCAL-FIRST RECONCILIATION HUD               │
+     │                                                          │
+     │  - Read local SQLite database state                      │
+     │  - Evaluate commitments against static shared schema     │
+     │  - Render unified shared pool (Income vs commitments)    │
+     └───────────────────────────┬──────────────────────────────┘
+                                 │
+                                 ▼
+                     [Manual Reconciliation CLI]
+                     $ household reconcile --commit
+                     1. Resolve unmatched ledger entries
+                     2. Merge transactions to SQLite state`;
         break;
 
       case "dependency-mapping":

@@ -38,7 +38,7 @@ export default function AboutPage() {
           </p>
         </div>
         <p className="text-xs text-text-muted leading-relaxed font-sans font-medium max-w-2xl">
-          That&rsquo;s the thesis. ShipClawFast removes setup memory. MenuOS removes operational coordination memory. TEM removes financial tracking memory. Household OS removes wealth coordination memory. Same problem, different domain.
+          That&rsquo;s the thesis. ShipClawFast removes setup memory. MenuOS removes operational coordination memory. TEM removes financial tracking memory. Household OS explores shared coordination memory. Same problem, different domain.
         </p>
       </div>
 

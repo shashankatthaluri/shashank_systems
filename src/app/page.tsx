@@ -286,14 +286,14 @@ export default function Home() {
                 },
                 {
                   product: "TEM",
-                  removes: "Financial tracking memory",
-                  detail: "Freelancers and operators shouldn&rsquo;t hold income, taxes, and projections in spreadsheets. The system computes it.",
+                  removes: "Expense recording memory",
+                  detail: "Freelancers and operators shouldn&rsquo;t struggle to reconstruct spending history. The system captures and recalls expenses via voice.",
                   href: "https://tem-nu.vercel.app/",
                 },
                 {
                   product: "Household OS",
                   removes: "Wealth coordination memory",
-                  detail: "Families shouldn&rsquo;t track shared finances through WhatsApp messages. The system holds the ground truth.",
+                  detail: "An exploration into modeling shared household finances as a coordination problem rather than a budgeting problem.",
                   href: "https://private-wealth-app.vercel.app/",
                 },
               ].map((item) => (
