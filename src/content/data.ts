@@ -84,7 +84,7 @@ $ shipclawfast init ./new-app
   writing redis session configuration... [OK]
   bootstrapping dev server... http://localhost:3000`,
     github: "https://github.com/shashank-atthaluri/shipclawfast",
-    demo: "https://shipclaw.fast",
+    demo: "https://www.shipclawfast.com/",
     whyExists: "AI founders underestimate operational lifecycle infrastructure complexity, focusing heavily on prompt tweaks while neglecting isolated runtimes, container containment, and clean tenant billing limits.",
     painPoints: [
       "Shared state contamination (agent variables leaking between workspaces)",
