@@ -48,6 +48,7 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Work", path: "/work" },
+    { name: "Philosophy", path: "/philosophy" },
     { name: "Systems", path: "/systems" },
     { name: "Writing", path: "/writing" },
     { name: "About", path: "/about" },

@@ -63,6 +63,7 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
     return [
       // Navigation commands
       { label: "/work", desc: "Go to Work & Shipped Projects", path: "/work", icon: FolderGit2, category: "Commands & Navigation", tags: ["/work", "projects", "portfolio", "code", "ship"] },
+      { label: "/philosophy", desc: "Go to Core Principles & System Beliefs", path: "/philosophy", icon: Sparkles, category: "Commands & Navigation", tags: ["/philosophy", "principles", "beliefs", "worldview", "rules"] },
       { label: "/systems", desc: "Go to Systems Thinking & Philosophy", path: "/systems", icon: Terminal, category: "Commands & Navigation", tags: ["/systems", "essays", "thinking", "rules"] },
       { label: "/writing", desc: "Go to Build Logs & Articles Archive", path: "/writing", icon: BookOpen, category: "Commands & Navigation", tags: ["/writing", "blog", "logs", "failures", "diary"] },
       { label: "/about", desc: "Go to Operating Philosophy & Bio", path: "/about", icon: Sparkles, category: "Commands & Navigation", tags: ["/about", "philosophy", "bio", "interests", "beliefs", "mind"] },

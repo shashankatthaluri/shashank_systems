@@ -163,7 +163,24 @@ $ tem status
   available_capital: ₹3,28,000
   next_review:       2026-07-01
   status: [NO_ACTION_REQUIRED]`,
-    demo: "https://tem-nu.vercel.app/"
+    demo: "https://tem-nu.vercel.app/",
+    whyExists: "Financial memory is the first thing that decays under high operational load. Freelancers and operators are forced to act as synchronization engines between invoice records, tax rules, bank accounts, and quarterly forecasts. The TEM blueprint is designed to offload this cognitive burden entirely.",
+    painPoints: [
+      "Traditional accounting software forces manual transaction entry, creating a high-friction batch process done at the end of the year under stress.",
+      "Voice note transcription models lose context and metadata, failing to parse intent and leading to miscategorization.",
+      "Tax rule adjustments are treated as historical queries instead of proactive, real-time capital allocation boundaries."
+    ],
+    designDecisions: [
+      "A background Voice Capture Pipeline that captures audio memos, transcribes them, and queues them as uncommitted transactions",
+      "An asynchronous Classification Engine that parses transaction intent locally using light LLM parsing and schema-first guardrails",
+      "A local-first SQLite ledger containing tax tables, allowing instant status updates without external network dependencies",
+      "Trust over Automation: The system generates transaction proposals but leaves them as uncommitted drafts requiring a single-tap approval"
+    ],
+    whatBrokeDetailed: [
+      "Runaway LLM classification loops in prototype versions auto-committed transaction records with erroneous categories, polluting the ledger",
+      "Sync delays during offline usage led to out-of-order transaction replay, causing local balance projections to drift from bank truth",
+      "OAuth bank feed sync complexity broke frequently when banks updated APIs. Ripped out API feeds for resilient manual verification workflows"
+    ]
   },
   {
     slug: "household-os",

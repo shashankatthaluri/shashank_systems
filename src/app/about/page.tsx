@@ -14,7 +14,7 @@ export default function AboutPage() {
           Shashank Atthaluri
         </h1>
         <p className="text-base text-text-muted leading-relaxed font-sans font-medium">
-          I build operating systems for human coordination. Every product I ship solves the same root problem: humans carry too much in their heads, and software should carry it instead.
+          I build operating systems for human coordination. Every product I ship solves the same root problem: humans carry too much in their heads, and software should carry it instead. I am less interested in building features than in identifying what humans are being forced to remember and designing systems that make remembering unnecessary.
         </p>
       </div>
 

@@ -89,6 +89,35 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                                             └─────────────────────────────┘`;
         break;
 
+      case "tem":
+        diagramTitle = "VOICE CAPTURE PIPELINE & CLASSIFICATION ENGINE // ASYNCHRONOUS LEDGER";
+        asciiArt = `
+[TEM VOICE MEMO CAPTURE & LOCAL RECONCILIATION PIPELINE]
+
+    Operator Voice Memo           Local Queue / SQLite Drafts          Classification Engine
+  ┌───────────────────────┐       ┌─────────────────────────────┐      ┌─────────────────────────────┐
+  │ Audio Capture (.wav)  │ ────> │ local-draft-queue           │ ───> │ LLM Structured Output       │
+  │ "Received ₹50k from   │       │                             │      │ (Schema Validation)         │
+  │ Acme Corp for design" │       │ - status: UNCOMMITTED       │      │                             │
+  └───────────────────────┘       │ - payload: raw_audio_bin    │      │ - Ingests transcribed text  │
+                                  └──────────────┬──────────────┘      │ - Extracts amount: ₹50,000  │
+                                                 │ (Whisper API)       │ - Extracts sender: Acme     │
+                                                 ▼                     │ - Maps category: Design     │
+                                  ┌─────────────────────────────┐      └──────────────┬──────────────┘
+                                  │ Whisper Transcription Path  │                     │
+                                  │ "Received 50000 rupees from │                     │ (Structured JSON)
+                                  │ Acme Corporation..."        │ <───────────────────┘
+                                  └──────────────┬──────────────┘
+                                                 │
+                                                 ▼
+                                  ┌─────────────────────────────┐      ┌─────────────────────────────┐
+                                  │ Local-First SQLite Database │ <─── │ Operator Verification HUD   │
+                                  │                             │      │                             │
+                                  │ - status: COMMITTED         │ <─── │ [Approve] / [Reject] Tap    │
+                                  │ - tax_allocation: 28%       │      │ (Trust Over Automation)     │
+                                  └─────────────────────────────┘      └─────────────────────────────┘`;
+        break;
+
       case "dependency-mapping":
         diagramTitle = "DAG KNOWLEDGE TREE // TOPOLOGICAL PRUNING ENGINE";
         asciiArt = `

@@ -27,7 +27,7 @@ export default function Home() {
             </div>
             
             <h1 className="font-heading text-4xl md:text-6xl font-extrabold tracking-tight text-foreground leading-[1.05]">
-              I build systems that survive <span className="text-accent">real-world</span> complexity.
+              I build software that remembers so <span className="text-accent">people don't have to</span>.
             </h1>
             
             <p className="text-base md:text-lg text-text-muted leading-relaxed max-w-2xl font-sans font-medium">
@@ -77,23 +77,27 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Execution Snapshot */}
+            {/* Operational Domains */}
             <div className="border-t border-border-subtle/50 pt-6 mt-8">
               <span className="text-[10px] font-mono text-accent uppercase tracking-wider block font-bold mb-3">
-                EXECUTION_SNAPSHOT // SHIPPED METRICS
+                OPERATIONAL_DOMAINS // SYSTEM ARCHITECTURES
               </span>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 gap-3">
                 <div className="p-3 rounded-lg border border-border-subtle/50 bg-card-bg/25">
-                  <div className="text-xl font-heading font-extrabold text-foreground">12+</div>
-                  <div className="text-[10px] text-text-muted font-mono mt-0.5">MVPS BOOTSTRAPPED</div>
+                  <div className="text-xs font-mono font-bold text-foreground">DEV INFRASTRUCTURE</div>
+                  <div className="text-[10px] text-text-muted font-sans mt-1 leading-normal">Deterministic local environments and fast feedback loops.</div>
                 </div>
                 <div className="p-3 rounded-lg border border-border-subtle/50 bg-card-bg/25">
-                  <div className="text-xl font-heading font-extrabold text-foreground">80,000+</div>
-                  <div className="text-[10px] text-text-muted font-mono mt-0.5">OFFLINE ORDERS SYNCED</div>
+                  <div className="text-xs font-mono font-bold text-foreground">OFFLINE COORDINATION</div>
+                  <div className="text-[10px] text-text-muted font-sans mt-1 leading-normal">Local-first sync protocols and distributed state managers.</div>
                 </div>
-                <div className="p-3 rounded-lg border border-border-subtle/50 bg-card-bg/25 col-span-2 sm:col-span-1">
-                  <div className="text-xl font-heading font-extrabold text-foreground">&lt; 4 Min</div>
-                  <div className="text-[10px] text-text-muted font-mono mt-0.5">LOCAL DEV SETUP TIME</div>
+                <div className="p-3 rounded-lg border border-border-subtle/50 bg-card-bg/25">
+                  <div className="text-xs font-mono font-bold text-foreground">PERSONAL MEMORY</div>
+                  <div className="text-[10px] text-text-muted font-sans mt-1 leading-normal">Software that carries cognitive load so people don't have to.</div>
+                </div>
+                <div className="p-3 rounded-lg border border-border-subtle/50 bg-card-bg/25">
+                  <div className="text-xs font-mono font-bold text-foreground">AI RUNTIME RELIABILITY</div>
+                  <div className="text-[10px] text-text-muted font-sans mt-1 leading-normal">Deterministic state machines and budget guardrails for LLMs.</div>
                 </div>
               </div>
             </div>
