@@ -72,7 +72,7 @@ export default function ContactPage() {
       name: "SCHEDULING ROUTER",
       value: "cal.com/shashank-atthaluri",
       icon: Calendar,
-      href: "https://cal.com", // Cal.com placeholder
+      href: "https://cal.com/shashank-atthaluri",
       actionText: "BOOK SYNC",
       canCopy: false,
     },
