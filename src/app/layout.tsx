@@ -63,13 +63,13 @@ export default function RootLayout({
               <span>© {new Date().getFullYear()} SHASHANK ATTHALURI. LOCAL-FIRST SOFTWARE LAB.</span>
             </div>
             <div className="flex gap-6">
-              <a href="https://github.com/shashank-atthaluri" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
+              <a href="https://github.com/shashankatthaluri" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
                 GITHUB
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
+              <a href="https://linkedin.com/in/shashank-atthaluri" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
                 LINKEDIN
               </a>
-              <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
+              <a href="https://x.com/askshashanka" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
                 TWITTER
               </a>
             </div>

@@ -51,7 +51,7 @@ const TwitterIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 export default function ContactPage() {
   const [copied, setCopied] = useState(false);
-  const email = "shashank@atthaluri.com";
+  const email = "shashankatthaluri@gmail.com";
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(email);
@@ -78,25 +78,25 @@ export default function ContactPage() {
     },
     {
       name: "SOURCE CONTROL",
-      value: "github.com/shashank-atthaluri",
+      value: "github.com/shashankatthaluri",
       icon: GithubIcon,
-      href: "https://github.com/shashank-atthaluri",
+      href: "https://github.com/shashankatthaluri",
       actionText: "VIEW REPOS",
       canCopy: false,
     },
     {
       name: "PROFESSIONAL INDEX",
-      value: "linkedin.com/in/shashank",
+      value: "linkedin.com/in/shashank-atthaluri",
       icon: LinkedinIcon,
-      href: "https://linkedin.com", // LinkedIn placeholder
+      href: "https://linkedin.com/in/shashank-atthaluri",
       actionText: "CONNECT",
       canCopy: false,
     },
     {
       name: "TECHNICAL BROADCASTS",
-      value: "x.com/shashank",
+      value: "x.com/askshashanka",
       icon: TwitterIcon,
-      href: "https://x.com", // Twitter placeholder
+      href: "https://x.com/askshashanka",
       actionText: "FOLLOW",
       canCopy: false,
     },

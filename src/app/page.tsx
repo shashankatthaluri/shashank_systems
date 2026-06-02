@@ -49,7 +49,7 @@ export default function Home() {
                 <span>Read Build Logs</span>
               </Link>
               <a
-                href="https://github.com/shashank-atthaluri"
+                href="https://github.com/shashankatthaluri"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center p-2.5 rounded-lg border border-border-subtle bg-card-bg/40 text-text-muted hover:text-foreground transition-all"
@@ -399,7 +399,7 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap items-center gap-4 pt-4">
             <a
-              href="mailto:shashank@atthaluri.com"
+              href="mailto:shashankatthaluri@gmail.com"
               className="flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-medium hover:bg-accent-dim transition-all shadow-[0_0_20px_rgba(224,106,59,0.1)]"
             >
               <span>Email Shashank</span>

@@ -83,7 +83,7 @@ $ shipclawfast init ./new-app
   + generated: src/types/db.d.ts (114 declarations)
   writing redis session configuration... [OK]
   bootstrapping dev server... http://localhost:3000`,
-    github: "https://github.com/shashank-atthaluri/shipclawfast",
+    github: "https://github.com/shashankatthaluri/shipclawfast",
     demo: "https://www.shipclawfast.com/",
     whyExists: "AI founders underestimate operational lifecycle infrastructure complexity, focusing heavily on prompt tweaks while neglecting isolated runtimes, container containment, and clean tenant billing limits.",
     painPoints: [
@@ -136,7 +136,7 @@ Kitchen Node Merger (Resolving State Queue):
 + Order_Item: [Starter] (Timestamp = 13)
 + Order_Item: [Dessert] (Timestamp = 12)
 Result: [Starter] strictly precedes [Dessert] in the dispatch rendering.`,
-    github: "https://github.com/shashank-atthaluri/menuos"
+    github: "https://github.com/shashankatthaluri/menuos"
   },
   {
     slug: "tem",
@@ -219,7 +219,7 @@ Pruning validation run:
   - (Current User Knowledge = Pointers)
   - Next required primitive node: [Memory Management]
   - Pruned nodes (skipping): [Pointers]`,
-    github: "https://github.com/shashank-atthaluri/dependency-dag"
+    github: "https://github.com/shashankatthaluri/dependency-dag"
   },
   {
     slug: "cognition-rl",
