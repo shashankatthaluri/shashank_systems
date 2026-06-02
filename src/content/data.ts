@@ -139,6 +139,61 @@ Result: [Starter] strictly precedes [Dessert] in the dispatch rendering.`,
     github: "https://github.com/shashank-atthaluri/menuos"
   },
   {
+    slug: "tem",
+    title: "TEM",
+    tagline: "Financial Memory System for Freelancers and Operators",
+    problem: "Freelancers and small operators track income, taxes, and capital allocation in spreadsheets — knowledge that lives in one person's head and breaks the moment context switches.",
+    whyFailed: "Standard accounting tools are designed for accountants, not operators. They surface historical data without surfacing what to do next. The cognitive load of interpretation remains entirely on the human.",
+    insight: "Financial tracking is a memory problem, not a math problem. By automating recall boundaries and surfacing the right number at the right moment, the software carries the mental overhead that operators currently carry themselves.",
+    philosophy: "The system should know what you owe, what you earned, and what you'll owe next quarter — without being asked.",
+    architecture: "A local-first data layer that ingests income events, applies configurable tax rules, and surfaces actionable projections. State persists locally, syncs on demand.",
+    techStack: ["Next.js", "TypeScript", "SQLite", "Prisma", "Tailwind CSS"],
+    impact: "Eliminates the need to open a spreadsheet to answer basic financial questions at the end of a work week.",
+    challenges: "Tax rules are jurisdiction-specific and change annually. Instead of trying to automate everything, the system provides configurable boundaries that operators tune once and the system applies consistently.",
+    lessons: "Simplicity over completeness. A system that answers three financial questions reliably beats one that tries to answer thirty and requires manual auditing.",
+    future: "Add automated invoice reconciliation and cash flow projection windows.",
+    timeline: "Build Duration: 6 weeks | Status: Active",
+    operationalNote: "Early versions tried to categorise transactions automatically. Categorisation errors required more correction time than manual entry. Switched to structured manual input with smart defaults.",
+    compromise: "No automatic bank sync. Removed it to avoid OAuth complexity and keep the system locally trustworthy without third-party dependencies.",
+    deprecatedApproach: "Automatic transaction categorisation via pattern matching. Abandoned when miscategorisation required more effort to fix than the time saved.",
+    buildArtifact: `[TEM FINANCIAL STATE SNAPSHOT]
+$ tem status
+  income_ytd:        ₹4,82,000
+  tax_estimate_q3:   ₹68,400  (28% effective)
+  available_capital: ₹3,28,000
+  next_review:       2026-07-01
+  status: [NO_ACTION_REQUIRED]`,
+    demo: "https://tem-nu.vercel.app/"
+  },
+  {
+    slug: "household-os",
+    title: "Household OS",
+    tagline: "Shared Wealth Coordination System for Families",
+    problem: "Families manage shared finances through WhatsApp messages, scattered spreadsheets, and conversations that happen once and are never recorded — leaving no single source of truth for joint assets, expenses, and decisions.",
+    whyFailed: "Consumer budgeting apps are designed for individuals. They assume a single owner and a single account. Shared household finance involves multiple stakeholders, joint decisions, and implicit rules that change over time.",
+    insight: "A household is a small distributed system with multiple contributors and shared state. The system should hold the ground truth so no individual family member has to.",
+    philosophy: "Shared finances should not require a designated memory-keeper. The software absorbs that role.",
+    architecture: "A multi-user local-first application with shared state sync. Each family member sees a consistent view of assets, liabilities, and decisions. Changes propagate and are versioned.",
+    techStack: ["Next.js", "TypeScript", "SQLite", "Prisma", "Tailwind CSS"],
+    impact: "Removes the need for weekly 'money conversations' by keeping shared financial state continuously visible and current.",
+    challenges: "Defining access boundaries without making the system feel intrusive. Chose a transparent model where all members see all shared state — no hidden categories.",
+    lessons: "The hardest part of shared financial software is social, not technical. The system has to feel fair and neutral to all parties or it won't be used.",
+    future: "Add long-horizon goal tracking and milestone milestones for major shared purchases.",
+    timeline: "Build Duration: 5 weeks | Status: Active",
+    operationalNote: "Early versions had too many categories. Simplified to four: income, fixed expenses, discretionary, and savings. Anything more created categorisation debates, not clarity.",
+    compromise: "No automatic reconciliation with bank statements. Kept it manual to preserve the system's role as a deliberate coordination tool, not a passive feed.",
+    deprecatedApproach: "Per-user budget silos with a shared summary view. Abandoned because it recreated the same fragmentation problem the system was meant to solve.",
+    buildArtifact: `[HOUSEHOLD OS STATE VIEW]
+$ household status
+  shared_income_july:    ₹1,20,000
+  fixed_commitments:     ₹44,000
+  discretionary_pool:    ₹38,000
+  savings_target_delta:  ₹+6,200 ahead
+  last_updated:          2026-06-02 by Shashank
+  status: [ON_TRACK]`,
+    demo: "https://private-wealth-app.vercel.app/"
+  },
+  {
     slug: "dependency-mapping",
     title: "Dependency Mapping Engine",
     tagline: "Interactive Knowledge Graph to Bypass Redundant Tutorials",

@@ -272,37 +272,45 @@ export default function Home() {
                   product: "ShipClawFast",
                   removes: "Setup memory",
                   detail: "Developers shouldn&rsquo;t have to remember how to configure a dev environment. The system does.",
+                  href: "https://www.shipclawfast.com/",
                 },
                 {
                   product: "MenuOS",
                   removes: "Operational coordination memory",
                   detail: "Restaurants shouldn&rsquo;t run on shouted orders and shift-change briefings. The system tracks everything.",
+                  href: "/work/menuos",
                 },
                 {
                   product: "TEM",
                   removes: "Financial tracking memory",
                   detail: "Freelancers and operators shouldn&rsquo;t hold income, taxes, and projections in spreadsheets. The system computes it.",
+                  href: "https://tem-nu.vercel.app/",
                 },
                 {
                   product: "Household OS",
                   removes: "Wealth coordination memory",
                   detail: "Families shouldn&rsquo;t track shared finances through WhatsApp messages. The system holds the ground truth.",
+                  href: "https://private-wealth-app.vercel.app/",
                 },
               ].map((item) => (
-                <div
+                <a
                   key={item.product}
+                  href={item.href}
+                  target={item.href.startsWith("http") ? "_blank" : undefined}
+                  rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className="flex items-start gap-6 p-5 rounded-xl border border-border-subtle/50 bg-card-bg/25 hover:border-accent/30 transition-colors group"
                 >
                   <div className="shrink-0 min-w-[120px]">
                     <span className="font-mono text-[10px] text-accent font-bold uppercase tracking-wider block">PRODUCT</span>
-                    <span className="font-heading text-sm font-bold text-foreground mt-0.5 block">{item.product}</span>
+                    <span className="font-heading text-sm font-bold text-foreground mt-0.5 block group-hover:text-accent transition-colors">{item.product}</span>
                   </div>
                   <div className="flex-1 space-y-1">
                     <span className="font-mono text-[10px] text-text-muted font-semibold uppercase tracking-wider">REMOVES</span>
                     <p className="text-sm font-semibold text-foreground">{item.removes}</p>
                     <p className="text-xs text-text-muted leading-relaxed font-sans" dangerouslySetInnerHTML={{ __html: item.detail }} />
                   </div>
-                </div>
+                  <ArrowUpRight className="h-4 w-4 text-text-muted group-hover:text-accent shrink-0 mt-1 transition-colors" />
+                </a>
               ))}
             </div>
           </div>
