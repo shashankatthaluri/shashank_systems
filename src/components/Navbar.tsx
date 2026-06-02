@@ -71,7 +71,7 @@ export default function Navbar() {
           >
             <span className="h-2 w-2 rounded-full bg-accent animate-pulse group-hover:scale-125 transition-transform" />
             <span className="font-mono text-xs tracking-wider text-text-muted group-hover:text-foreground transition-colors">
-              SHASHANK.BUILD
+              SHASHANK.SYSTEMS
             </span>
           </Link>
 
