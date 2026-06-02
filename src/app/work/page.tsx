@@ -39,6 +39,30 @@ export default function WorkPage() {
         </p>
       </div>
 
+      {/* Cross-Domain Systems — Connecting thesis */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border border-border-subtle/50 rounded-2xl p-6 md:p-8 bg-card-bg/20">
+        <div className="md:col-span-3 mb-2">
+          <span className="font-mono text-[10px] text-accent font-bold uppercase tracking-wider">CROSS-DOMAIN SYSTEMS // THE COMMON PATTERN</span>
+          <p className="text-sm text-text-muted font-medium mt-2 max-w-2xl leading-relaxed">
+            These products look different on the surface. Under the hood, they solve the same problem in different domains.
+          </p>
+        </div>
+        {[
+          { domain: "Developer Tooling", product: "ShipClawFast", thesis: "Removes the memory of environment setup" },
+          { domain: "Restaurant Operations", product: "MenuOS", thesis: "Removes the memory of order coordination" },
+          { domain: "Finance & Tax", product: "TEM", thesis: "Removes the memory of financial tracking" },
+          { domain: "Household Wealth", product: "Household OS", thesis: "Removes the memory of shared finances" },
+          { domain: "AI Infrastructure", product: "Agent Systems", thesis: "Removes the memory of execution state" },
+          { domain: "Data Architecture", product: "Dependency Mapping", thesis: "Removes the memory of system relationships" },
+        ].map((item) => (
+          <div key={item.product} className="space-y-1 p-4 rounded-xl border border-border-subtle/30 bg-background/30">
+            <span className="font-mono text-[9px] text-text-muted uppercase tracking-wider font-semibold">{item.domain}</span>
+            <p className="font-heading text-sm font-bold text-foreground">{item.product}</p>
+            <p className="text-xs text-text-muted leading-relaxed">{item.thesis}</p>
+          </div>
+        ))}
+      </div>
+
       {/* Filter Tabs */}
       <div className="flex flex-wrap gap-2 border-b border-border-subtle/50 pb-6">
         {categories.map((cat) => (

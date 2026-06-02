@@ -31,7 +31,7 @@ export default function Home() {
             </h1>
             
             <p className="text-base md:text-lg text-text-muted leading-relaxed max-w-2xl font-sans font-medium">
-              Systems Product Engineer building operational lifecycle infrastructure, offline-first databases, and deterministic agent containment environments.
+              I build operating systems for human coordination — software that carries the cognitive load of running a business, so founders and operators never have to hold it in their heads.
             </p>
             
             <div className="flex flex-wrap gap-4 pt-4">
@@ -241,6 +241,70 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 2.5 — WHAT CONNECTS MY WORK */}
+      <section className="border-b border-border-subtle/50 py-20 px-6 md:px-8 bg-background">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            {/* Left: Label + Thesis */}
+            <div className="lg:col-span-5 space-y-6">
+              <span className="text-xs font-mono text-accent uppercase tracking-wider font-semibold">THE PATTERN</span>
+              <h2 className="font-heading text-3xl font-extrabold tracking-tight">
+                What connects my work
+              </h2>
+              <p className="text-sm text-text-muted leading-relaxed font-sans font-medium max-w-md">
+                Every product I build solves the same root problem — humans carry too much in their heads. Businesses run on remembered rules, informal coordination, and cognitive overhead that compounds until it breaks.
+              </p>
+              <div className="border-l-2 border-accent/50 pl-4 py-1">
+                <p className="text-sm font-mono text-foreground font-semibold leading-relaxed">
+                  The best software doesn&rsquo;t add features. It removes the need to remember things.
+                </p>
+              </div>
+            </div>
+
+            {/* Right: Project-to-thesis mapping */}
+            <div className="lg:col-span-7 space-y-4">
+              {[
+                {
+                  product: "ShipClawFast",
+                  removes: "Setup memory",
+                  detail: "Developers shouldn&rsquo;t have to remember how to configure a dev environment. The system does.",
+                },
+                {
+                  product: "MenuOS",
+                  removes: "Operational coordination memory",
+                  detail: "Restaurants shouldn&rsquo;t run on shouted orders and shift-change briefings. The system tracks everything.",
+                },
+                {
+                  product: "TEM",
+                  removes: "Financial tracking memory",
+                  detail: "Freelancers and operators shouldn&rsquo;t hold income, taxes, and projections in spreadsheets. The system computes it.",
+                },
+                {
+                  product: "Household OS",
+                  removes: "Wealth coordination memory",
+                  detail: "Families shouldn&rsquo;t track shared finances through WhatsApp messages. The system holds the ground truth.",
+                },
+              ].map((item) => (
+                <div
+                  key={item.product}
+                  className="flex items-start gap-6 p-5 rounded-xl border border-border-subtle/50 bg-card-bg/25 hover:border-accent/30 transition-colors group"
+                >
+                  <div className="shrink-0 min-w-[120px]">
+                    <span className="font-mono text-[10px] text-accent font-bold uppercase tracking-wider block">PRODUCT</span>
+                    <span className="font-heading text-sm font-bold text-foreground mt-0.5 block">{item.product}</span>
+                  </div>
+                  <div className="flex-1 space-y-1">
+                    <span className="font-mono text-[10px] text-text-muted font-semibold uppercase tracking-wider">REMOVES</span>
+                    <p className="text-sm font-semibold text-foreground">{item.removes}</p>
+                    <p className="text-xs text-text-muted leading-relaxed font-sans" dangerouslySetInnerHTML={{ __html: item.detail }} />
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

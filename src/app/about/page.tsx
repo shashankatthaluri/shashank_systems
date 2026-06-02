@@ -14,7 +14,31 @@ export default function AboutPage() {
           Shashank Atthaluri
         </h1>
         <p className="text-base text-text-muted leading-relaxed font-sans font-medium">
-          Systems Product Engineer building operational lifecycle infrastructure, offline-first databases, and deterministic agent containment environments. I build software systems under real-world constraints, prioritizing predictability and low cognitive friction.
+          I build operating systems for human coordination. Every product I ship solves the same root problem: humans carry too much in their heads, and software should carry it instead.
+        </p>
+      </div>
+
+      {/* WHY I BUILD — Founder Thesis */}
+      <div className="space-y-6 p-6 md:p-8 rounded-2xl border border-accent/20 bg-accent/5">
+        <div className="space-y-1">
+          <span className="font-mono text-[10px] text-accent font-bold uppercase tracking-wider">FOUNDER THESIS</span>
+          <h2 className="font-heading text-xl font-extrabold tracking-tight text-foreground">
+            Why I build
+          </h2>
+        </div>
+        <p className="text-sm text-text-muted leading-relaxed font-sans font-medium max-w-2xl">
+          Every business I&rsquo;ve studied runs on informal memory. Orders passed by shouting. Finances tracked in spreadsheets. Setup steps remembered by one person. Tax estimates held in someone&rsquo;s head.
+        </p>
+        <p className="text-sm text-text-muted leading-relaxed font-sans font-medium max-w-2xl">
+          When that memory fails &mdash; and it always does &mdash; things break. Not because people are careless. Because the software never took over the job.
+        </p>
+        <div className="border-l-2 border-accent/50 pl-4 py-1">
+          <p className="text-sm font-mono text-foreground font-semibold leading-relaxed">
+            Reduce cognitive load by transforming fragile human memory and coordination into reliable software systems.
+          </p>
+        </div>
+        <p className="text-xs text-text-muted leading-relaxed font-sans font-medium max-w-2xl">
+          That&rsquo;s the thesis. ShipClawFast removes setup memory. MenuOS removes operational coordination memory. TEM removes financial tracking memory. Household OS removes wealth coordination memory. Same problem, different domain.
         </p>
       </div>
 

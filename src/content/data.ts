@@ -224,6 +224,27 @@ Throttle rate: dynamic (backing off 4500ms based on header ratelimit)`
 
 export const posts: Post[] = [
   {
+    slug: "the-best-software-removes-things-you-shouldnt-have-to-remember",
+    title: "The Best Software Removes Things You Shouldn't Have To Remember",
+    date: "2026-06-02",
+    category: "Failure-Driven Architecture",
+    readTime: "6 min read",
+    summary: "Software should absorb cognitive load instead of demanding more attention. A look at working memory, coordination overhead, and why the best systems quietly carry obligations for the user.",
+    content: `Typical web software is designed to demand attention. We are bombarded with notification bells, flashing badges, and complex dashboards designed to keep us scrolling. Software has become a mechanism for creating cognitive overhead rather than absorbing it. 
+
+I believe the best software does the opposite: it removes things you shouldn't have to remember.
+
+When we build systems, our success metric should not be how long a user spends looking at a screen. The success metric is how much working memory we have freed up. 
+
+Every product I build carries a specific cognitive load:
+* **ShipClawFast** removes developer setup memory. Instead of forcing engineers to remember custom database pool allocations, port configurations, and volume permissions, it wraps environments in deterministic, zero-configuration startup scripts.
+* **MenuOS** removes operational coordination memory. Kitchen environments are high-velocity physical state machines. Cooks shouldn't have to recall order sequences or double-check ticket numbers. MenuOS uses logical clocks and offline SQLite storage to coordinate state transitions reliably.
+* **TEM** removes financial memory. Instead of managing complex capital distribution parameters in spreadsheets, it automates recall boundaries.
+* **Household OS** removes family wealth coordination memory. Managing multi-layered family assets is a tracking nightmare. The system absorbs the tracking responsibilities, keeping state synchronized.
+
+As systems product engineers, we must shift our focus from adding capabilities to removing obligations. By designing software that quietly absorbs tracking, synchronization, and coordination, we free up human minds for focus. We build operating systems that carry the weight of real-world complexity, ensuring the interface is a quiet extension of physical intent.`
+  },
+  {
     slug: "why-most-sync-engines-eventually-lie",
     title: "Why Most Sync Engines Eventually Lie",
     date: "2026-05-12",
@@ -321,7 +342,7 @@ export const systemNodes: SystemNode[] = [
     description: "Studying human focus limits, context-switch costs, and progressive disclosure UI patterns to reduce operator fatigue.",
     x: 400,
     y: 150,
-    connections: ["ai-systems", "ux", "learning-systems"],
+    connections: ["ai-systems", "ux", "learning-systems", "external-memory"],
     linkedConcepts: ["Dependency Mapping Engine", "DX Friction (Product Decision)", "Adaptive UX (Product Decision)"],
     experiments: ["Eye-tracking documentation layout density maps", "Context-switch timing audits"],
     decisions: ["Collapsing fifty dashboard options into progressive commands"]
@@ -357,7 +378,7 @@ export const systemNodes: SystemNode[] = [
     description: "Fast MVP execution, database index design, schema migration flows, and local telemetry logging.",
     x: 600,
     y: 220,
-    connections: ["workflow-design", "ux", "infrastructure"],
+    connections: ["workflow-design", "ux", "infrastructure", "external-memory"],
     linkedConcepts: ["ShipClawFast CLI", "MenuOS Offline POS", "Database indexing patterns"],
     experiments: ["Local schema sync validation hooks", "Index boundary query profiling"],
     decisions: ["Multi-tenant schema isolation namespaces over multi-DB instances"]
@@ -369,7 +390,7 @@ export const systemNodes: SystemNode[] = [
     description: "Keyboard-driven command palettes, dark contrast themes, and visual hierarchies optimized for scanning speed.",
     x: 550,
     y: 100,
-    connections: ["cognition", "product-systems"],
+    connections: ["cognition", "product-systems", "external-memory"],
     linkedConcepts: ["MenuOS Offline POS", "Adaptive UX (Product Decision)", "Progressive disclosure states"],
     experiments: ["Fuzzy match command palette latency tests", "High-contrast tactile click audits"],
     decisions: ["Replacing sidebar menus with global keyboard palette overlays"]
@@ -381,7 +402,7 @@ export const systemNodes: SystemNode[] = [
     description: "Optimizing PostgreSQL pools, configuring Redis cache keys, and building SQLite sync scripts for offline tablets.",
     x: 750,
     y: 300,
-    connections: ["product-systems", "operational-tooling"],
+    connections: ["product-systems", "operational-tooling", "external-memory"],
     linkedConcepts: ["MenuOS Offline POS", "SQLite-to-Postgres sync", "Redis queue backpressure"],
     experiments: ["Packet conflicts during restaurant Wi-Fi drop simulations", "Reconnection memory leaks"],
     decisions: ["Ripping out Docker setups and deploying direct shell scripts for local dev"]
@@ -421,6 +442,18 @@ export const systemNodes: SystemNode[] = [
     linkedConcepts: ["ShipClawFast CLI", "Local shell configuration compilers", "Active build terminal monitors"],
     experiments: ["Telemetry profiling for write-compile cycles", "CLI dependency ASCII tree renders"],
     decisions: ["Restricting bootstrapping choice to database pools and schemas, leaving business logic open"]
+  },
+  {
+    id: "external-memory",
+    label: "External Memory Systems",
+    category: "core",
+    description: "Software becomes valuable when users stop remembering operational details themselves. The best systems quietly absorb memory, coordination, synchronization, and tracking responsibilities. TEM, MenuOS, Household OS, and ShipClawFast are all different expressions of this principle.",
+    x: 500,
+    y: 280,
+    connections: ["cognition", "product-systems", "ux", "infrastructure"],
+    linkedConcepts: ["Developer Memory -> ShipClawFast", "Operational Memory -> MenuOS", "Financial Memory -> TEM", "Wealth Coordination Memory -> Household OS"],
+    experiments: ["Absorbing operational context variables", "Pruning human recall metrics"],
+    decisions: ["Shifting architecture focus to carrying cognitive load instead of creating it"]
   }
 ];
 
