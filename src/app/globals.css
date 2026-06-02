@@ -1,26 +1,77 @@
 @import "tailwindcss";
 
+@theme {
+  --color-background: #080c14;
+  --color-foreground: #f8fafc;
+  --color-accent: #e06a3b;
+  --color-accent-dim: #b84e24;
+  --color-card-bg: #0f1626;
+  --color-border-subtle: #1d273a;
+  --color-text-muted: #94a3b8;
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-heading: var(--font-heading);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Geist Mono', monospace;
+  --font-heading: 'Outfit', 'Space Grotesk', sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #080c14;
+  color: #f8fafc;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #080c14;
+}
+::-webkit-scrollbar-thumb {
+  background: #1d273a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e06a3b;
+}
+
+/* Glassmorphism custom classes */
+.glass {
+  background: rgba(15, 22, 38, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(29, 39, 58, 0.5);
+}
+
+.glass-interactive {
+  background: rgba(15, 22, 38, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(29, 39, 58, 0.4);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-interactive:hover {
+  background: rgba(15, 22, 38, 0.8);
+  border-color: rgba(224, 106, 59, 0.4);
+  box-shadow: 0 4px 20px rgba(224, 106, 59, 0.05);
+}
+
+/* Technical system grid background */
+.grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(29, 39, 58, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(29, 39, 58, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.glow-orange {
+  box-shadow: 0 0 50px rgba(224, 106, 59, 0.1);
 }
